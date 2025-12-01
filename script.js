@@ -11,7 +11,7 @@ const links = document.querySelectorAll('.nav-links li');
 
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('nav-active');
-    
+
     // Hamburger Animation
     hamburger.classList.toggle('toggle');
 });
@@ -25,7 +25,7 @@ links.forEach(link => {
 });
 
 // Countdown Timer
-const eventDate = new Date('December 25, 2025 12:00:00').getTime();
+const eventDate = new Date('March 28, 2026 12:00:00').getTime();
 
 const countdown = setInterval(() => {
     const now = new Date().getTime();
@@ -72,19 +72,19 @@ const formStatus = document.getElementById('form-status');
 
 rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     // Simulate form submission
     const name = document.getElementById('name').value;
     const guests = document.getElementById('guests').value;
-    
+
     // In a real app, you would send this data to a backend
     console.log(`RSVP: ${name} with ${guests} guests`);
-    
+
     formStatus.innerText = `Thank you, ${name}! Your RSVP has been received.`;
     formStatus.style.color = 'green';
-    
+
     rsvpForm.reset();
-    
+
     setTimeout(() => {
         formStatus.innerText = '';
     }, 5000);
