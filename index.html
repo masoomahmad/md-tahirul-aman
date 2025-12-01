@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqiqah Ceremony - Tahir Aman</title>
+    <meta name="description" content="Join us for the Aqiqah Ceremony of Tahir Aman.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Tahir Aman</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#details">Event Details</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+            <p class="sub-headline">In the Name of Allah, the Most Gracious, the Most Merciful</p>
+            <h1>Tahir Aman</h1>
+            <p class="event-type">Aqiqah Ceremony</p>
+            <div class="divider"></div>
+            <p class="date">Sunday, December 25th, 2025</p>
+            <a href="#rsvp" class="btn-primary">Save the Date</a>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+
+    <!-- Introduction / Dua Section -->
+    <section id="about" class="section about">
+        <div class="container" data-aos="fade-up">
+            <h2>A Special Blessing</h2>
+            <p class="quran-verse">"Wealth and children are [but] adornment of the worldly life..." <br> (Surah Al-Kahf, 18:46)</p>
+            <p class="intro-text">
+                With hearts full of gratitude to the Almighty, we invite you to share in our joy as we celebrate the Aqiqah of our beloved son. 
+                Your presence and prayers will make this occasion even more memorable.
+            </p>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="section countdown-section">
+        <div class="container" data-aos="zoom-in">
+            <h2>Counting Down the Days</h2>
+            <div id="countdown" class="countdown-timer">
+                <div class="time-unit">
+                    <span id="days">00</span>
+                    <label>Days</label>
+                </div>
+                <div class="time-unit">
+                    <span id="hours">00</span>
+                    <label>Hours</label>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes">00</span>
+                    <label>Minutes</label>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds">00</span>
+                    <label>Seconds</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section id="details" class="section details">
+        <div class="container">
+            <h2 data-aos="fade-up">Event Details</h2>
+            <div class="details-grid">
+                <div class="detail-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="icon">📅</div>
+                    <h3>When</h3>
+                    <p>Sunday, December 25th, 2025</p>
+                    <p>12:00 PM - 4:00 PM</p>
+                </div>
+                <div class="detail-card" data-aos="fade-left" data-aos-delay="200">
+                    <div class="icon">📍</div>
+                    <h3>Where</h3>
+                    <p>Grand Banquet Hall</p>
+                    <p>123 Celebration Avenue, City Name</p>
+                    <a href="#" class="map-link">View on Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Placeholder (Optional) -->
+    <!-- 
+    <section id="gallery" class="section gallery">
+        ...
+    </section> 
+    -->
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="section rsvp">
+        <div class="container" data-aos="fade-up">
+            <h2>RSVP</h2>
+            <p>Please let us know if you can join us by December 10th.</p>
+            
+            <form id="rsvp-form" class="rsvp-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <select id="guests" name="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5+ Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Message for the family (Optional)"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Confirm Attendance</button>
+            </form>
+            <p id="form-status" class="form-status"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tahir Aman's Aqiqah. Created with ❤️.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
