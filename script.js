@@ -89,3 +89,129 @@ rsvpForm.addEventListener('submit', (e) => {
         formStatus.innerText = '';
     }, 5000);
 });
+
+// Hero Background Slider
+const hero = document.querySelector('.hero');
+const heroImages = [
+    'gellery/aqiqah_boy_1.png',
+    'gellery/aqiqah_boy_2.jpeg'
+];
+let currentHeroImageIndex = 0;
+
+function changeHeroBackground() {
+    currentHeroImageIndex = (currentHeroImageIndex + 1) % heroImages.length;
+    hero.style.backgroundImage = `url('${heroImages[currentHeroImageIndex]}')`;
+}
+
+// Change background every 5 seconds
+setInterval(changeHeroBackground, 5000);
+
+// Get Directions logic
+function getDirections() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                // Create Google Maps Directions URL
+                const url = `https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=Resaldar+Baba+Banquet+Hall,+Ranchi`;
+                window.open(url, '_blank');
+            },
+            (error) => {
+                console.error("Error getting location: ", error);
+                // Fallback if user denies location or error
+                alert("Could not retrieve your location. Opening map with destination only.");
+                window.open("https://maps.google.com/?q=Resaldar+Baba+Banquet+Hall,+Ranchi", '_blank');
+            }
+        );
+    } else {
+        alert("Geolocation is not supported by this browser.");
+        window.open("https://maps.google.com/?q=Resaldar+Baba+Banquet+Hall,+Ranchi", '_blank');
+        window.open("https://maps.google.com/?q=Resaldar+Baba+Banquet+Hall,+Ranchi", '_blank');
+    }
+}
+
+// Lightbox Logic
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.close-btn');
+const galleryItems = document.querySelectorAll('.gallery-item img');
+
+let currentImageIndex = 0;
+const images = [];
+
+// Collect all images sources
+galleryItems.forEach((item, index) => {
+    images.push(item.src);
+    item.addEventListener('click', () => {
+        openLightbox(index);
+    });
+});
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    lightboxImg.src = images[currentImageIndex];
+    lightbox.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+}
+
+function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Enable scrolling
+}
+
+function changeImage(n) {
+    currentImageIndex += n;
+    if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+    } else if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+    }
+    lightboxImg.src = images[currentImageIndex];
+}
+
+closeBtn.addEventListener('click', closeLightbox);
+
+// Close on outside click
+window.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'block') {
+        if (e.key === 'ArrowLeft') {
+            changeImage(-1);
+        } else if (e.key === 'ArrowRight') {
+            changeImage(1);
+        } else if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    }
+});
+
+// Touch Swipe Support for Lightbox
+let touchStartX = 0;
+let touchEndX = 0;
+
+lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+lightbox.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        // Swipe Left -> Next Image
+        changeImage(1);
+    }
+    if (touchEndX > touchStartX + 50) {
+        // Swipe Right -> Prev Image
+        changeImage(-1);
+    }
+}
