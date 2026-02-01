@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
 
     <!-- AOS Animation Library -->
@@ -43,11 +43,18 @@
     <!-- Hero Section -->
     <header id="home" class="hero">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
-            <p class="sub-headline">In the Name of Allah, the Most Gracious, the Most Merciful</p>
-            <h1>Md. Tahirul Aman</h1>
+            <p class="headline">In the Name of Allah, the Most Gracious, the Most Merciful</p>
+            <br>
+            <p class="sub-headline">With immense gratitude to Almighty Allah, from the family of Late Tahirul Aman, we
+                cordially invite you to</p>
+            <!-- Event Type -->
             <p class="event-type">Aqiqah Ceremony</p>
             <div class="divider"></div>
-            <p class="date">Satarday, March 28th, 2026</p>
+            <p class="sub-headline">of our beloved child</p>
+            <h1>Md. Tahirul Aman</h1>
+            <p class="sub-headline">Son of Irteza Aman & Shama</p>
+            <!-- Date -->
+            <p class="date">Saturday, March 28th, 2026</p>
             <a href="#rsvp" class="btn-primary">Save the Date</a>
         </div>
         <div class="hero-overlay"></div>
@@ -98,12 +105,29 @@
             <h2 data-aos="fade-up">Event Details</h2>
             <div class="details-grid">
                 <div class="detail-card" data-aos="fade-right" data-aos-delay="100">
-                    <div class="icon">📅</div>
+                    <div class="icon">
+                        <!-- Simple Calendar SVG with '28' -->
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="6" width="18" height="15" rx="2" fill="white" stroke="#333"
+                                stroke-width="2" />
+                            <path d="M3 10H21" stroke="#333" stroke-width="2" />
+                            <path d="M8 3V6" stroke="#333" stroke-width="2" stroke-linecap="round" />
+                            <path d="M16 3V6" stroke="#333" stroke-width="2" stroke-linecap="round" />
+                            <text x="50%" y="78%" dominant-baseline="middle" text-anchor="middle"
+                                font-family="Fredoka, sans-serif" font-weight="bold" font-size="10"
+                                fill="#E53935">28</text>
+                        </svg>
+                    </div>
                     <h3>When</h3>
                     <p>Saturday, March 28th, 2026</p>
-                    <p>7:00 PM Onward (Dinner)</p>
                 </div>
-                <div class="detail-card" data-aos="fade-left" data-aos-delay="200">
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon">🍽️</div>
+                    <h3>Dinner</h3>
+                    <p>7:00 PM Onward</p>
+                    <p>Delicious Feast</p>
+                </div>
+                <div class="detail-card" data-aos="fade-left" data-aos-delay="300">
                     <div class="icon">📍</div>
                     <h3>Where</h3>
                     <p>Resaldar Baba Banquet Hall</p>
@@ -149,7 +173,7 @@
     <section id="rsvp" class="section rsvp">
         <div class="container" data-aos="fade-up">
             <h2>RSVP</h2>
-            <p>Please let us know if you can join us by December 10th.</p>
+            <p>Please let us know if you can join us</p>
 
             <form id="rsvp-form" class="rsvp-form">
                 <div class="form-group">
@@ -181,10 +205,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
-</body>
-
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
@@ -193,4 +213,9 @@
         <a class="prev-btn" onclick="changeImage(-1)">&#10094;</a>
         <a class="next-btn" onclick="changeImage(1)">&#10095;</a>
     </div>
-</body></html>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

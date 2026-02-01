@@ -66,28 +66,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// RSVP Form Handling (Mock)
+// RSVP Form Handling
 const rsvpForm = document.getElementById('rsvp-form');
 const formStatus = document.getElementById('form-status');
+
+// PASTE YOUR GOOGLE SCRIPT URL HERE
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxdxBCQgAq7Np3ZVtjwzWWSKwIHH0STwReqEZIST046il5Td0yeasd5ne-D5XJ1OHbQqw/exec';
 
 rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Simulate form submission
-    const name = document.getElementById('name').value;
-    const guests = document.getElementById('guests').value;
+    // Removed configuration check since URL is set
 
-    // In a real app, you would send this data to a backend
-    console.log(`RSVP: ${name} with ${guests} guests`);
+    formStatus.innerText = 'Sending...';
+    formStatus.style.color = '#333';
 
-    formStatus.innerText = `Thank you, ${name}! Your RSVP has been received.`;
-    formStatus.style.color = 'green';
+    // Collect form data and convert to URLSearchParams
+    const formData = new FormData(rsvpForm);
+    const data = new URLSearchParams(formData);
 
-    rsvpForm.reset();
+    fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data
+    })
+        .then(response => {
+            // With no-cors, we can't check response.ok, so we assume success if it didn't throw
+            formStatus.innerText = `Thank you! Your RSVP has been received.`;
+            formStatus.style.color = 'green';
+            rsvpForm.reset();
 
-    setTimeout(() => {
-        formStatus.innerText = '';
-    }, 5000);
+            setTimeout(() => {
+                formStatus.innerText = '';
+            }, 5000);
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            formStatus.innerText = 'Error sending RSVP. Please try again.';
+            formStatus.style.color = 'red';
+        });
 });
 
 // Hero Background Slider

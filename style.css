@@ -1,12 +1,15 @@
 :root {
-    --primary-color: #1a237e;
-    /* Royal Blue */
-    --secondary-color: #c5a059;
-    /* Soft Gold */
-    --text-color: #333;
-    --bg-color: #f9f9f9;
+    --primary-color: #0288d1;
+    /* Sky Blue */
+    --secondary-color: #FBC02D;
+    /* Warm Yellow */
+    --accent-color: #66BB6A;
+    /* Mint Green */
+    --text-color: #424242;
+    --bg-color: #E1F5FE;
+    /* Very Light Blue BG */
     --white: #ffffff;
-    --font-heading: 'Playfair Display', serif;
+    --font-heading: 'Fredoka', sans-serif;
     --font-body: 'Lato', sans-serif;
 }
 
@@ -50,20 +53,26 @@ ul {
 .btn-primary {
     display: inline-block;
     background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 12px 30px;
-    border-radius: 30px;
+    color: #333;
+    /* Dark text for contrast on yellow */
+    padding: 15px 35px;
+    border-radius: 50px;
+    /* Bubbly roundness */
+    font-family: var(--font-heading);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    border: 3px solid #fff;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
-    background-color: #b08d45;
-    transform: translateY(-2px);
+    background-color: #FFEA00;
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Navigation */
@@ -96,10 +105,13 @@ ul {
 }
 
 .nav-links a {
-    font-weight: 700;
-    font-size: 0.9rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
     text-transform: uppercase;
     color: var(--text-color);
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -155,24 +167,38 @@ ul {
 }
 
 .sub-headline {
-    font-style: italic;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
     font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 400;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero h1 {
-    font-size: 4rem;
-    color: var(--white);
-    margin-bottom: 10px;
+    font-size: 5rem;
+    color: #FFEB3B;
+    /* Bright Yellow */
+    margin: 15px 0 10px;
     line-height: 1.1;
+    text-shadow: 2px 2px 0px #F57F17, 4px 4px 0px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    transform: rotate(-2deg);
+    /* Playful tilt */
+    display: inline-block;
 }
 
 .event-type {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .divider {
@@ -183,13 +209,17 @@ ul {
 }
 
 .hero .date {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.4rem;
+    margin-bottom: 35px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Sections General */
 .section {
     padding: 80px 0;
+    text-align: center;
 }
 
 .section h2 {
@@ -198,8 +228,7 @@ ul {
     margin-bottom: 40px;
     position: relative;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    /* Removed absolute positioning hacks */
 }
 
 .section h2::after {
@@ -229,6 +258,7 @@ ul {
     max-width: 700px;
     margin: 0 auto;
     font-size: 1.1rem;
+    text-align: center;
 }
 
 /* Countdown Section */
@@ -299,6 +329,40 @@ ul {
 .detail-card .icon {
     font-size: 3rem;
     margin-bottom: 20px;
+    background: var(--bg-color);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 0px var(--secondary-color);
+}
+
+.calendar-icon {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cal-month {
+    background-color: #E53935;
+    /* Red header like typical calendar */
+    color: white;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 2px 0;
+    text-transform: uppercase;
+}
+
+.cal-day {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: -2px;
 }
 
 .detail-card h3 {
@@ -328,7 +392,7 @@ ul {
 .rsvp-form {
     max-width: 600px;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
 }
 
 .form-group {
